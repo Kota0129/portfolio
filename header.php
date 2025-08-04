@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+
+<head>
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <title><?php bloginfo('name'); ?> | <?php bloginfo('description'); ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php wp_head(); ?>
+</head>
+
+<body>
+    <?php wp_body_open(); ?>
+    <header id="header" class="site-header" role="banner">
+        <div class="site-header__bar">
+            <p class="site-header__catchphrase">
+                “ちゃんと伝わる”を大切に。誠実対応で安心のWeb制作を。
+            </p>
+        </div>
+
+        <div class="site-header__inner">
+            <?php if (is_front_page()) : ?>
+                <h1 class="site-header__title">
+                    <a href="<?php echo esc_url(home_url()); ?>" class="site-header__title-link">
+                        <span class="site-header__title--accent">Kota</span>_<span class="site-header__title--base">WebOffice</span>
+                    </a>
+                </h1>
+            <?php else : ?>
+                <div class="site-header__title">
+                    <a href="<?php echo esc_url(home_url()); ?>" class="site-header__title-link">
+                        <span class="site-header__title--accent">Kota</span>_<span class="site-header__title--base">WebOffice</span>
+                    </a>
+                </div>
+            <?php endif; ?>
+
+            <nav class="site-header__nav" role="navigation" aria-label="グローバルナビゲーション">
+                <div class="menu-heading">MENU</div>
+                <ul class="site-header__nav-list">
+                    <li class="site-header__nav-item"><a href="<?php echo esc_url(get_permalink(get_page_by_path('profile'))); ?>">Kota_WebOfficeについて</a></li>
+                    <li class="site-header__nav-item"><a href="<?php echo esc_url(get_permalink(get_page_by_path('services'))); ?>">サービス内容</a></li>
+                    <li class="site-header__nav-item"><a href="<?php echo esc_url(get_permalink(get_page_by_path('portfolio'))); ?>">制作実績</a></li>
+                    <li class="site-header__nav-item"><a href="<?php echo esc_url(get_permalink(get_page_by_path('news'))); ?>">お知らせ</a></li>
+                    <li class="site-header__nav-item"><a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>">お問い合わせ</a></li>
+                </ul>
+            </nav>
+
+            <button class="hamburger" id="js-hamburger" aria-label="メニューを開く">
+                <span class="hamburger__line"></span>
+                <span class="hamburger__line"></span>
+                <span class="hamburger__line"></span>
+            </button>
+
+            <div class="mask"></div>
+
+        </div>
+    </header>
+    <header class="fixed-header">
+        <div class="fixed-header__inner">
+            <?php if (is_front_page()) : ?>
+                <h1 class="site-header__title">
+                    <a href="<?php echo esc_url(home_url()); ?>" class="site-header__title-link">
+                        <span class="site-header__title--accent">Kota</span>_<span class="site-header__title--base">WebOffice</span>
+                    </a>
+                </h1>
+            <?php else : ?>
+                <div class="site-header__title">
+                    <a href="<?php echo esc_url(home_url()); ?>" class="site-header__title-link">
+                        <span class="site-header__title--accent">Kota</span>_<span class="site-header__title--base">WebOffice</span>
+                    </a>
+                </div>
+            <?php endif; ?>
+            <nav class="fixed-header__nav">
+                <ul class="site-header__nav-list">
+                    <li class="site-header__nav-item"><a href="<?php echo esc_url(get_permalink(get_page_by_path('profile'))); ?>">Kota_WebOfficeについて</a></li>
+                    <li class="site-header__nav-item"><a href="<?php echo esc_url(get_permalink(get_page_by_path('services'))); ?>">サービス内容</a></li>
+                    <li class="site-header__nav-item"><a href="<?php echo esc_url(get_permalink(get_page_by_path('portfolio'))); ?>">制作実績</a></li>
+                    <li class="site-header__nav-item"><a href="<?php echo esc_url(get_permalink(get_page_by_path('news'))); ?>">お知らせ</a></li>
+                    <li class="site-header__nav-item"><a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
