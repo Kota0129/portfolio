@@ -70,6 +70,10 @@ get_header();
                             </a>
                         </td>
                     </tr>
+                    <tr>
+                        <th>GitHub</th>
+                        <td><a href="https://github.com/Kota0129" target="_blank">https://github.com/Kota0129</a></td>
+                    </tr>
                 </table>
             </div>
         </div>
