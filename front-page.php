@@ -51,6 +51,7 @@
                 <ul class="portfolio__tags">
                   <li>デザイン支給</li>
                   <li>HTML/CSSコーディング</li>
+                  <li>WordPress</li>
                   <li>ハンバーガーメニュー・スクロール演出</li>
                   <li>レスポンシブ対応</li>
                 </ul>
