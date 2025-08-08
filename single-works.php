@@ -25,8 +25,18 @@
             <?php the_content(); ?>
         </div>
         <div class="mockup-images">
-            <img src="<?php echo esc_url(get_theme_file_uri('img/tablet-maripro.png')); ?>" alt="タブレット表示例">
-            <img src="<?php echo esc_url(get_theme_file_uri('img/smartfone-maripro.png')); ?>" alt="スマホ表示例">
+            <?php
+            $tablet_img = get_field('mockup_tablet');
+            $smartphone_img = get_field('mockup_smartphone');
+            ?>
+
+            <?php if ($tablet_img): ?>
+                <img src="<?php echo esc_url($tablet_img['url']); ?>" alt="<?php echo esc_attr($tablet_img['alt']); ?>">
+            <?php endif; ?>
+
+            <?php if ($smartphone_img): ?>
+                <img src="<?php echo esc_url($smartphone_img['url']); ?>" alt="<?php echo esc_attr($smartphone_img['alt']); ?>">
+            <?php endif; ?>
         </div>
         <div class="portfolio-detail__info">
             <dl>
