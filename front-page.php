@@ -3,8 +3,8 @@
 <a href="#main" class="skip-link">本文へスキップ</a>
 
 <main id="main" class="main" role="main">
-	<section class="hero" role="region" aria-labelledby="hero-title">
-	  <picture aria-hidden="true">
+  <section class="hero" role="region" aria-labelledby="hero-title">
+    <picture aria-hidden="true">
       <!-- SP用画像-->
       <source media="(max-width: 767px)" srcset="<?php echo get_template_directory_uri(); ?>/img/hero_visual-sp.png">
       <!-- PC用画像-->
@@ -38,7 +38,7 @@
   </section>
 
   <!-- ========== PORTFOLIO ========== -->
-	<section class="portfolio fadein" id="portfolio" role="region" aria-labelledby="portfolio-title">
+  <section class="portfolio fadein" id="portfolio" role="region" aria-labelledby="portfolio-title">
     <div class="section-inner">
       <h2 id="portfolio-title" class="section-title" aria-level="2" role="heading">
         <span class="ja">制作実績</span>
@@ -47,53 +47,58 @@
       </h2>
 
       <div class="portfolio__grid">
-<?php
-$posts = [
-  [
-    'slug' => 'maripro',
-    'img'  => 'portforio1.png',
-    'title'=> 'Marriage Project様_HP',
-    'tags' => ['デザイン支給', 'HTML/CSSコーディング', 'WordPress', 'ハンバーガーメニュー・スクロール演出', 'レスポンシブ対応']
-  ],
-  [
-    'slug' => 'yui',
-    'img'  => 'yui.png',
-    'title'=> '架空サイト 信州酒蔵 結_HP',
-    'tags' => ['デザイン作成', 'HTML/CSSコーディング', 'スライダー・ハンバーガーメニュー', 'レスポンシブ対応']
-  ],
-  [
-    'slug' => 'video',
-    'img'  => 'video-school-main.png',
-    'title'=> '架空サイト VideoEdit Academy_LP',
-    'tags' => ['デザイン作成', 'HTML/CSSコーディング', 'アコーディオン・ハンバーガーメニュー', 'レスポンシブ対応']
-  ]
-];
+        <?php
+        $posts = [
+          [
+            'slug' => 'maripro',
+            'img'  => 'portforio1.png',
+            'title' => 'Marriage Project様_HP',
+            'tags' => ['デザイン支給', 'HTML/CSSコーディング', 'WordPress', 'ハンバーガーメニュー・スクロール演出', 'レスポンシブ対応']
+          ],
+          [
+            'slug' => 'yui',
+            'img'  => 'yui.png',
+            'title' => '日本酒専門店_HP',
+            'tags' => ['架空サイト', 'デザイン作成', 'HTML/CSSコーディング', 'スライダー', 'レスポンシブ対応']
+          ],
+          [
+            'slug' => 'video',
+            'img'  => 'video-school-main.png',
+            'title' => '動画編集スクール_LP',
+            'tags' => ['架空サイト', 'デザイン作成', 'HTML/CSSコーディング', 'アコーディオン', 'レスポンシブ対応']
+          ],
+          [
+            'slug' => 'brightai',
+            'img'  => 'ai-corporate-main.png',
+            'title' => 'AIスタートアップ企業_HP',
+            'tags' => ['架空サイト', 'デザイン作成', 'HTML/CSSコーディング', 'ハンバーガーメニュー', 'レスポンシブ対応']
+          ]
+        ];
 
-  foreach ($posts as $p) :
-    $post = get_page_by_path($p['slug'], OBJECT, 'works');
-    if ($post) :
-  ?>
-    <a
-      href="<?php echo esc_url(get_permalink($post->ID)); ?>"
-      class="portfolio__item"
-      aria-label="制作実績『<?php echo esc_attr($p['title']); ?>』の詳細ページへ"
-    >
-      <figure>
-        <img src="<?php echo esc_url(get_theme_file_uri('img/' . $p['img'])); ?>" alt="<?php echo esc_attr($p['title']); ?>">
-        <figcaption>
-          <p class="portfolio__title"><?php echo esc_html($p['title']); ?></p>
-          <ul class="portfolio__tags">
-            <?php foreach ($p['tags'] as $tag) : ?>
-              <li><?php echo esc_html($tag); ?></li>
-            <?php endforeach; ?>
-          </ul>
-        </figcaption>
-      </figure>
-    </a>
-  <?php
-    endif;
-  endforeach;
-  ?>
+        foreach ($posts as $p) :
+          $post = get_page_by_path($p['slug'], OBJECT, 'works');
+          if ($post) :
+        ?>
+            <a
+              href="<?php echo esc_url(get_permalink($post->ID)); ?>"
+              class="portfolio__item"
+              aria-label="制作実績『<?php echo esc_attr($p['title']); ?>』の詳細ページへ">
+              <figure>
+                <img src="<?php echo esc_url(get_theme_file_uri('img/' . $p['img'])); ?>" alt="<?php echo esc_attr($p['title']); ?>">
+                <figcaption>
+                  <p class="portfolio__title"><?php echo esc_html($p['title']); ?></p>
+                  <ul class="portfolio__tags">
+                    <?php foreach ($p['tags'] as $tag) : ?>
+                      <li><?php echo esc_html($tag); ?></li>
+                    <?php endforeach; ?>
+                  </ul>
+                </figcaption>
+              </figure>
+            </a>
+        <?php
+          endif;
+        endforeach;
+        ?>
       </div>
 
       <a href="<?php echo esc_url(get_permalink(get_page_by_path('portfolio'))); ?>" class="btn" aria-label="制作実績一覧を見る">
