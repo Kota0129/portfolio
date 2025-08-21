@@ -40,16 +40,20 @@ get_header();
             </div>
 
             <div class="profile__info">
-                <h2 class="profile__name">Kota</h2>
+                <h2 class="profile__name">Kota</h2>
 
                 <table class="profile__table" aria-label="プロフィール情報一覧">
                     <tr>
                         <th scope="row">代表者</th>
                         <td>Kota</td>
                     </tr>
+					<tr>
+                        <th scope="row">年齢</th>
+                        <td>33歳</td>
+                    </tr>
                     <tr>
                         <th scope="row">所在地</th>
-                        <td>神奈川県（自宅兼事務所のため非公開）</td>
+                        <td>神奈川県横浜市（自宅兼事務所のため非公開）</td>
                     </tr>
                     <tr>
                         <th scope="row">業務内容</th>
@@ -66,22 +70,6 @@ get_header();
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row">SNS</th>
-                        <td>
-                            <a href="https://twitter.com/KOO86079816"
-                               target="_blank" rel="noopener noreferrer"
-                               class="x-link"
-                               aria-label="X（旧Twitter）アカウント @KOO86079816（新しいタブで開きます）">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                     fill="currentColor" viewBox="0 0 24 24"
-                                     aria-hidden="true" focusable="false">
-                                    <path d="M14.684 10.296L22.309 2h-1.825l-6.538 7.036L8.537 2H2.25l8.074 11.525L2.25 22h1.825l6.99-7.522L15.463 22h6.288l-7.067-11.704Zm-2.479 2.67l-.81-1.15L4.43 3.296h2.923l5.25 7.447.81 1.15 6.998 9.92h-2.923l-5.283-7.847Z" />
-                                </svg>
-                                <span>@KOO86079816</span>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
                         <th scope="row">GitHub</th>
                         <td>
                             <a href="https://github.com/Kota0129"
@@ -93,6 +81,29 @@ get_header();
                     </tr>
                 </table>
             </div>
+        </div>
+		
+		<div class="profile__social" role="region" aria-labelledby="social-heading">
+            <h3 id="social-heading" class="profile__sub-title">日々の発信</h3>
+                <p class="profile__note">X（旧Twitter）で Web制作の案件・実装の気づきを<strong>毎日発信中</Ïstrong>です。</p>
+                    <blockquote class="twitter-tweet" data-theme="light">
+                        <p lang="ja" dir="ltr">📌【ポートフォリオ＆成長の記録】<br><br>学習を積み重ね、案件挑戦を経て <br>WordPressオリジナルテーマでポートフォリオを公開しました。 <br><br>継続力とアウトプット力を強みに、 <br>ご依頼にも丁寧かつ迅速に対応しています。 <br><br>（学習初期→案件挑戦→現在の流れを3枚でまとめました👇） <a href="https://t.co/bVsP1QJWmR">pic.twitter.com/bVsP1QJWmR</a></p>&mdash; Kota @ Webコーダー (@KOO86079816) <a href="https://twitter.com/KOO86079816/status/1957744348684251647?ref_src=twsrc%5Etfw">August 19, 2025</a>
+                    </blockquote>
+			<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+
+		<div class="profile__career" role="region" aria-labelledby="career-heading">
+            <h3 id="career-heading" class="profile__sub-title">経歴</h3>
+            <ul class="career__list">
+                <li>長野県出身</li>
+                <li>私立大学文系卒業</li>
+                <li>神奈川県横浜市にて医療系営業職に従事</li>
+                <li>同業界にて転職、メーカー営業として通算10年勤務</li>
+                <li>2025年2月〜　本業と並行してWeb制作の学習を開始（独学）</li>
+                <li>MENTAにて現役エンジニアから学習サポートを受け、HTML・CSS・JavaScript・PHP・WordPressを習得</li>
+                <li>学習期間中はX（旧Twitter）にて毎日学習内容を発信し、継続力を強化</li>
+                <li>現在も日々の気づきやお知らせを継続投稿中</li>
+            </ul>
         </div>
 
         <div class="profile__story" role="region" aria-labelledby="story-heading">
