@@ -203,7 +203,6 @@ img {
   justify-content: space-between;
   align-items: center;
   margin: 0;
-  position: relative;
   z-index: 20;
   margin: 0 auto;
 }
@@ -290,15 +289,9 @@ img {
   width: 100%;
 }
 
-.hamburger {
-  display: none;
-  cursor: pointer;
-  z-index: 1001;
-  padding: 0.5rem;
-  position: absolute;
-  right: 4%;
-  top: 50%;
-  transform: translateY(-50%);
+.mask {
+    display: none;
+    transition: 0.5s;
 }
 
 /* ====================================
@@ -306,15 +299,23 @@ img {
 ==================================== */
 .fixed-header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
   transform: translateY(-100%);
-  transition: transform 0.4s ease;
-  z-index: 999;
-  display: none;
+  transition: transform .4s ease, opacity .4s ease, visibility .4s ease;
+  z-index: 1100;            
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;    
+  will-change: transform;
+}
+
+.fixed-header[aria-hidden="false"] {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .fixed-header__nav .site-header__nav-item a {
@@ -324,7 +325,6 @@ img {
   padding: 0.5rem 0;
   transition: color 0.3s ease;
 }
-
 .fixed-header__nav .site-header__nav-item a:hover {
   color: #2a6f97;
 }
@@ -371,6 +371,11 @@ img {
 .hero__role {
   font-size: 1.2rem;
   font-weight: bold;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.35), 
+    0 2px 4px rgba(0,0,0,.25),
+    0 8px 18px rgba(0,0,0,.25);
+  letter-spacing:.02em;
   margin-bottom: 1rem;
 }
 
@@ -401,8 +406,18 @@ img {
 .price__link-subtle {
   display: block;
   font-size: 1rem;
+  font-weight:700;
   margin-top: 1.6rem;
   position: relative;
+   text-shadow:
+    0 1px 0 rgba(255,255,255,.55), 
+    0 2px 2px rgba(0,0,0,.20);   
+}
+
+@keyframes nudge-right {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(8px); } /* 動く量は好みで 4〜12px 程度に */
+  100% { transform: translateX(0); }
 }
 
 .price__arrow {
@@ -410,6 +425,9 @@ img {
   width: 40%;
   position: absolute;
   top: 60%;
+  animation: nudge-right 1.4s ease-in-out infinite;
+  will-change: transform;
+	filter: drop-shadow(0 1px 2px rgba(0,0,0,.35));
 }
 
 /* -----------------------------------------------------
@@ -1198,10 +1216,78 @@ FAQ
   color: #0d8ddb;
 }
 
-.profile__story {
-  margin: 4rem 0;
+.profile__social{
+  --accent: #80bfa8;             
+  margin: 3rem 0;
   padding: 2rem;
-  background-color: #f7f9f9;
+  background: #fff;
+  border-radius: 8px;
+  border-left: 6px solid var(--accent); 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.profile__social .profile__sub-title{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #222;
+  margin: 0 0 .75rem;
+  padding-left: 0;
+  position: static;         
+}
+
+.profile__social .profile__sub-title::before{ 
+	content: none; 
+}
+
+.profile__social .profile__note{
+  margin: .5rem 0 1.25rem;
+  padding: .9rem 1rem;
+  color: #333;
+  background: #f7f9f9; 
+  border: 1px solid #eee;
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.profile__social .profile__note strong{
+  font-weight: 700;
+  background: none;              
+}
+
+.profile__career {
+  margin: 3rem 0;
+  padding: 2rem;
+  border-left: 6px solid #80bfa8;
+  border-radius: 8px;
+  line-height: 1.8;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.profile__career .profile__sub-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.profile__career .career__list {
+  list-style: disc inside;
+  padding-left: 0;
+  color: #333;
+  line-height: 1.8;
+}
+
+.career__list li::marker {
+  content: "•  ";  
+  color: #333;
+}
+
+.profile__story {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   border-left: 6px solid #80bfa8;
   border-radius: 8px;
   line-height: 1.8;
@@ -1725,6 +1811,11 @@ main.page {
   line-height: 2;
 }
 
+.page__content li {
+  list-style: disc;
+  list-style-position: inside;
+}
+
 .page__content p {
   margin-bottom: 1.5rem;
 }
@@ -1915,18 +2006,18 @@ main.page {
 	{
     padding-top: 3rem;
   }
-
+  
   .is-safari .service-detail__section,
   .is-safari .profile,
   .is-safari .works,
   .is-safari .portfolio-detail,
 	.is-safari .page
   {
-    padding-top: 6rem;
+    padding-top: 5rem;
   }
-	main,
-	main.page {
-		padding-top:4rem;
+	.main,
+	.is-safari .main {
+		padding-top:3.2rem;
 	}
   .about,
   .services,
@@ -1984,22 +2075,6 @@ main.page {
     text-align: center;
   }
 
-  .hamburger {
-    display: block;
-    width: 50px;
-    height: 40px;
-  }
-
-  .hamburger__line {
-    display: block;
-    width: 100%;
-    height: 2px;
-    border-radius: 3px;
-    margin: 6px auto;
-    background-color: #3b3b3b;
-    transition: 0.5s;
-  }
-
   .site-header__nav {
     position: fixed;
     top: 0;
@@ -2055,9 +2130,44 @@ main.page {
   .open .site-header__nav {
     right: 0;
   }
+	
+  .hamburger {
+  display: block;
+  width: 40px;  
+  height: 40px; 
+  position: relative;
+  cursor: pointer;
+  z-index: 1001;
+}
+	
+  .open .hamburger {
+    display: block;
+  }
+
+  .hamburger__line {
+    display: block;
+    width: 85%;
+    height: 2px;
+    border-radius: 3px;
+    position: absolute;
+    background-color: #3b3b3b;
+    transition: 0.5s;
+  }
+	
+  .hamburger__line:nth-child(1) {
+	top: 10px;
+	}
+	
+  .hamburger__line:nth-child(2) {
+	top: 22px;
+	}
+  
+  .hamburger__line:nth-child(3) {
+	bottom: 4px;
+	}
 
   .open .hamburger__line:nth-child(1) {
-    transform: translateY(6px) rotate(45deg);
+    transform: translateY(13px) rotate(45deg);
   }
 	
   .open .hamburger__line:nth-child(2) {
@@ -2065,12 +2175,7 @@ main.page {
   }
 	
   .open .hamburger__line:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-
-  .mask {
-    display: none;
-    transition: 0.5s;
+    transform: translateY(-11px) rotate(-45deg);
   }
 
   .open .mask {
@@ -2116,9 +2221,7 @@ main.page {
 }
 
 .hero__desc {
-  font-size: 1rem;
-  line-height: 1.8;
-	margin-bottom:0;
+  display: none;
 }
 
 .price__link-subtle {
@@ -2194,26 +2297,15 @@ SP
     padding: 0.4rem;
   }
 
-  .hamburger {
-    width: 40px;
-    height: 30px;
-  }
-
-  .hamburger__line {
-    margin: 5px auto;
-  }
 	
 　/* ===== ヒーローセクション ===== */
-　 .hero {
-	padding:1rem 0;
-  }
 	.hero picture,
     .hero__bg-image {
-      object-position: center 60%;
+     object-position: center;
   }
 
   .hero__inner {
-	top: 32%;
+	top: 25%;
     left: 5%;
     right: 5%;
 	padding: 0;
@@ -2229,7 +2321,7 @@ SP
 
   .hero__catch-wrap {
     gap: 0.6rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
 	  text-align:center;
   }
   .hero__catch-line {
@@ -2250,9 +2342,9 @@ SP
   }
 
   .price__arrow {
-    width: 45%;
+    width: 50%;
     top: 55%;
-	left: 33%;
+	left: 28%;
   }
 
   /* ===== kota_WebOfficeについて ===== */
@@ -2607,7 +2699,6 @@ SP
   .mockup-images img {
     width: 100%;
   }
-  
   .portfolio-detail__info {
     padding: 1.5rem;
     font-size: 0.95rem;
@@ -2697,3 +2788,7 @@ textarea:focus-visible {
 
 /* 5) スキップリンク（既存定義を活かしつつ focus-visible にも反応） */
 .skip-link:focus-visible { left: 8px; }
+
+@media (min-width: 1025px) {   /* PCは隠す */
+  .hamburger { display: none; }
+}
