@@ -5,6 +5,19 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <title><?php bloginfo('name'); ?> | <?php bloginfo('description'); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Mobile用 LCP 先読み -->
+<link rel="preload" as="image"
+  imagesrcset="<?php echo get_template_directory_uri(); ?>/img/hero_visual-sp.avif 800w,
+               <?php echo get_template_directory_uri(); ?>/img/hero_visual-sp.jpg 800w"
+  imagesizes="100vw"
+  media="(max-width:767px)">
+
+<!-- Desktop用 LCP 先読み -->
+<link rel="preload" as="image"
+  imagesrcset="<?php echo get_template_directory_uri(); ?>/img/hero_visual-pc.avif 1600w,
+               <?php echo get_template_directory_uri(); ?>/img/hero_visual-pc.jpg 1600w"
+  imagesizes="100vw"
+  media="(min-width:768px)">
     <?php wp_head(); ?>
 </head>
 
