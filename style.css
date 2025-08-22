@@ -37,12 +37,28 @@ body {
 *::after {
   box-sizing: border-box;
 }
-.skip-link { position: absolute; left: -9999px; top: 0; z-index: 10000; background: #000; color: #fff; padding: .5rem .75rem; border-radius: 4px; }
-.skip-link:focus { left: 8px; }
 
+.skip-link { 
+	position: absolute; 
+	left: -9999px; 
+	top: 0; 
+	z-index: 10000; 
+	background: #000; 
+	color: #fff; 
+	padding: .5rem .75rem; 
+	border-radius: 4px; 
+}
+
+.skip-link:focus { 
+	left: 8px; 
+}
 
 main {
   flex: 1;
+}
+
+:where(section, article, nav, aside, main) h1 {
+  font-size: 2em; 
 }
 
 a {
