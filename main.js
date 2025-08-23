@@ -7,6 +7,39 @@ jQuery(function ($) {
   var $hamburger  = $(".hamburger");
   var $mask       = $(".mask");
   var $nav        = $(".site-header__nav");
+	
+  // ==========================
+// ヒーロー高さ調整
+// ==========================
+var $hero = $(".hero");
+var _heroTicking = false;
+
+function setHeroHeight() {
+  if (!$hero.length || !$siteHeader.length) return;
+  var vh = window.innerHeight;               
+  var hh = $siteHeader.outerHeight() || 0;     
+  var target = Math.max(0, vh - hh);           
+  $hero.css({
+    minHeight: target + "px",
+    height:    target + "px"                 
+  });
+}
+
+function requestSetHeroHeight() {
+  if (_heroTicking) return;
+  _heroTicking = true;
+  requestAnimationFrame(function(){
+    setHeroHeight();
+    _heroTicking = false;
+  });
+}
+
+setHeroHeight();
+$(window).on("resize orientationchange", requestSetHeroHeight);
+$(window).on("load", requestSetHeroHeight);
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(requestSetHeroHeight).catch(function(){});
+}
 
   // 初期ARIA
   $mask.attr("aria-hidden", "true");
@@ -105,18 +138,31 @@ jQuery(function ($) {
     if (e.key === "Enter" || e.key === " ") { e.preventDefault(); $(this).trigger("click"); }
   });
 
-  // ==========================
-  // 固定ヘッダー表示（ARIAでトグル）
-  // ==========================
-  var fixedHeader = document.querySelector(".fixed-header");
-  function updateFixedHeader(){
-    if (!fixedHeader || !$siteHeader.length) return;
-    var show = window.innerWidth >= 1025 && window.pageYOffset > $siteHeader[0].offsetHeight;
-    fixedHeader.setAttribute("aria-hidden", show ? "false" : "true");
-  }
-  window.addEventListener("scroll", updateFixedHeader, {passive:true});
-  window.addEventListener("resize", updateFixedHeader);
-  updateFixedHeader(); // 初期状態反映
+// ==========================
+// 固定ヘッダー表示（ARIAでトグル）
+// ==========================
+var fixedHeader = document.querySelector(".fixed-header");
+
+function updateFixedHeader(){
+  if (!fixedHeader || !$siteHeader.length) return;
+
+  var enable = true;
+  var headerH = $siteHeader.outerHeight() || 0;
+  var scrollY = window.scrollY != null ? window.scrollY
+               : document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+  var show = enable && scrollY > headerH;
+
+  fixedHeader.setAttribute("aria-hidden", show ? "false" : "true");
+}
+
+var _resizeTimer;
+window.addEventListener("scroll", updateFixedHeader, { passive: true });
+window.addEventListener("resize", function () {
+  clearTimeout(_resizeTimer);
+  _resizeTimer = setTimeout(updateFixedHeader, 100);
+});
+updateFixedHeader(); 
 
   // ==========================
   // フェードイン
@@ -130,6 +176,40 @@ jQuery(function ($) {
   }
   $(window).on("scroll", runFadeIn);
   runFadeIn();
+	
+	// ==========================
+// 制作実績：slick スライダー
+// ==========================
+(function initPortfolioSlider(){
+  var $g = $('.portfolio__slider');
+  if (!$g.length) return;
+
+  if (!$.fn.slick) {
+    console.warn('[portfolio] slickが読み込まれていません');
+    return;
+  }
+
+  $g.css('display', 'block');
+
+  $g.on('init', function(){
+  }).slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    infinite: true,          
+    dots: true,
+    arrows: true,
+    speed: 500,
+    cssEase: 'ease-out',
+    adaptiveHeight: false,
+    lazyLoad: 'ondemand',
+    autoplay: true,            
+    autoplaySpeed: 4000,       
+    pauseOnHover: true,       
+    pauseOnFocus: true,        
+    prevArrow: '<button type="button" class="slick-prev" aria-label="前へ"></button>',
+    nextArrow: '<button type="button" class="slick-next" aria-label="次へ"></button>'
+  });
+})();
 
   // ==========================
   // スムーススクロール
@@ -186,4 +266,5 @@ jQuery(function ($) {
   $(".skip-link").on("click", function(){
     setTimeout(function(){ $main.trigger("focus"); }, 0);
   });
+
 });
