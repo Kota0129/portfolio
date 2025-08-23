@@ -71,14 +71,18 @@
                     <dd><?php the_field('work_period'); ?></dd>
                 </div>
                 <div class="portfolio-detail__row">
+                    <dt>金額</dt>
+                    <dd><?php the_field('work_price'); ?></dd>
+                </div>
+                <div class="portfolio-detail__row">
                     <dt>URL</dt>
                     <dd>
                         <?php $url = get_field('work_url'); ?>
                         <?php if ($url): ?>
                             <a href="<?php echo esc_url($url); ?>"
-                               target="_blank"
-                               rel="noopener noreferrer"
-                               aria-label="制作サイトを新しいタブで開く">
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="制作サイトを新しいタブで開く">
                                 <?php echo esc_html($url); ?>
                             </a>
                         <?php endif; ?>
@@ -86,9 +90,7 @@
                 </div>
             </dl>
         </div>
-    </section>
-
-    <a href="<?php echo esc_url(home_url('/portfolio')); ?>" class="btn">制作実績一覧に戻る</a>
+        <a href="<?php echo esc_url(home_url('/portfolio')); ?>" class="btn">制作実績一覧に戻る</a>
 </main>
 
 <?php get_footer(); ?>
