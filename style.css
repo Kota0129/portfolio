@@ -38,19 +38,19 @@ body {
   box-sizing: border-box;
 }
 
-.skip-link { 
-	position: absolute; 
-	left: -9999px; 
-	top: 0; 
-	z-index: 10000; 
-	background: #000; 
-	color: #fff; 
-	padding: .5rem .75rem; 
-	border-radius: 4px; 
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 10000;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
 }
 
-.skip-link:focus { 
-	left: 8px; 
+.skip-link:focus {
+  left: 8px;
 }
 
 main {
@@ -58,7 +58,7 @@ main {
 }
 
 :where(section, article, nav, aside, main) h1 {
-  font-size: 2em; 
+  font-size: 2em;
 }
 
 a {
@@ -125,15 +125,14 @@ img {
   padding: 1.5rem 4rem;
   max-width: 400px;
   width: 100%;
-  background: linear-gradient(to right, #FFA500, #FF4500);
+  background: linear-gradient(to right, #ffa500, #ff4500);
   color: #fff;
   font-size: 1.6rem;
   font-weight: bold;
   border-radius: 9999px;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow:
-    inset 0 2px 4px rgba(255, 255, 255, 0.3),
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3),
     0 6px 12px rgba(255, 115, 0, 0.4);
   position: relative;
   top: 0;
@@ -141,8 +140,7 @@ img {
 
 .contact__btn:hover {
   background: linear-gradient(to right, #e59400, #e03d00);
-  box-shadow:
-    inset 0 1px 2px rgba(255, 255, 255, 0.2),
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2),
     0 4px 8px rgba(0, 0, 0, 0.2);
   top: 2px;
 }
@@ -231,7 +229,8 @@ img {
   letter-spacing: 0.05em;
   transform: skewX(-2deg);
   color: #2e2e2e;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.07);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6), 0 2px 4px rgba(0, 0, 0, 0.25),
+    0 6px 12px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
 }
 
@@ -247,6 +246,8 @@ img {
 .fixed-header__link:hover {
   opacity: 0.85;
   transform: scale(1.02);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8), 0 3px 6px rgba(0, 0, 0, 0.3),
+    0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .site-header__title--accent {
@@ -306,8 +307,8 @@ img {
 }
 
 .mask {
-    display: none;
-    transition: 0.5s;
+  display: none;
+  transition: 0.5s;
 }
 
 /* ====================================
@@ -315,15 +316,17 @@ img {
 ==================================== */
 .fixed-header {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transform: translateY(-100%);
-  transition: transform .4s ease, opacity .4s ease, visibility .4s ease;
-  z-index: 1100;            
+  transition: transform 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+  z-index: 1100;
   opacity: 0;
   visibility: hidden;
-  pointer-events: none;    
+  pointer-events: none;
   will-change: transform;
 }
 
@@ -351,16 +354,18 @@ img {
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
 }
 
 .hero picture,
 .hero__bg-image {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 70%;
+  object-position: center 80%;
   display: block;
 }
 
@@ -371,28 +376,30 @@ img {
   transform: translateY(-50%);
   z-index: 1;
   max-width: 1000px;
-  padding: 2rem 0;
+  padding-top: 4rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
 }
 
+.hero h1 {
+  margin: 0;
+}
+
 .hero__text {
   color: #1a1a1a;
   font-weight: 600;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 .hero__role {
+  color: #e8f1ff;
   font-size: 1.2rem;
-  font-weight: bold;
-  text-shadow:
-    0 1px 0 rgba(255,255,255,.35), 
-    0 2px 4px rgba(0,0,0,.25),
-    0 8px 18px rgba(0,0,0,.25);
-  letter-spacing:.02em;
-  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 6px 16px rgba(0, 0, 0, 0.25);
+  margin-bottom: 0.75rem;
 }
 
 .hero__catch-wrap {
@@ -405,35 +412,83 @@ img {
 }
 
 .hero__catch-line {
-  background-color: #fff;
-  border-radius: 4px;
+  display: inline-block;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(240, 248, 255, 0.92) 100%
+  );
+  border-radius: 6px;
   font-size: 2.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  width: fit-content;
-  max-width: 100%;  
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+
+  opacity: 0;
+  transform: translate3d(0, 30px, 0);
+  will-change: transform, opacity;
+  animation: fadeSlideUp 1.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero__catch-line:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.hero__catch-line.is-done {
+  will-change: auto;
+}
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+  }
+  60% {
+    opacity: 0.95;
+    transform: translate3d(0, 4px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 .hero__desc {
+  width: 500px;
+  color: #0f2740;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.82) 0%,
+    rgba(240, 248, 255, 0.78) 100%
+  );
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  margin: 1.2rem 0 1.2rem;
   font-size: 1rem;
   line-height: 1.8;
-  margin: 1.5rem 0;
 }
 
 .price__link-subtle {
   display: block;
   font-size: 1rem;
-  font-weight:700;
+  font-weight: 700;
   margin-top: 1.6rem;
   position: relative;
-   text-shadow:
-    0 1px 0 rgba(255,255,255,.55), 
-    0 2px 2px rgba(0,0,0,.20);   
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.55), 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes nudge-right {
-  0%   { transform: translateX(0); }
-  50%  { transform: translateX(8px); } /* 動く量は好みで 4〜12px 程度に */
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .price__arrow {
@@ -443,7 +498,162 @@ img {
   top: 60%;
   animation: nudge-right 1.4s ease-in-out infinite;
   will-change: transform;
-	filter: drop-shadow(0 1px 2px rgba(0,0,0,.35));
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+}
+
+/* -----------------------------------------------------
+制作実績
+----------------------------------------------------- */
+.portfolio {
+  background: #fff;
+  padding: 6rem 4%;
+}
+
+.portfolio__slider {
+  display: block;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.portfolio__slider .slick-list {
+  margin: 0;
+}
+.portfolio__slider .slick-slide {
+  padding: 0;
+  outline: none;
+}
+
+.portfolio__item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.portfolio__item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.portfolio__thumb {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  background: transparent;
+  border-radius: 10px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.portfolio__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  vertical-align: bottom;
+}
+
+.portfolio__item figure {
+  margin: 0;
+}
+.portfolio__item figcaption {
+  text-align: center;
+  margin-top: 0;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.4;
+}
+.portfolio__title {
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin: 0.6rem 0 0.4rem;
+}
+
+.portfolio__tags {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+.portfolio__tags li::before {
+  content: "✔️";
+  margin-right: 0.4em;
+  color: #4db6ac;
+}
+
+.portfolio .btn {
+  width: 40%;
+  max-width: 400px;
+  display: block;
+  margin: 3rem auto 0;
+  text-align: center;
+}
+
+.portfolio .slick-prev,
+.portfolio .slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+  background: #2a6f97;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  z-index: 2;
+  cursor: pointer;
+  font-size: 0;
+  line-height: 0;
+  box-sizing: border-box;
+}
+.portfolio .slick-prev {
+  left: -16px;
+}
+.portfolio .slick-next {
+  right: -16px;
+}
+
+.portfolio .slick-prev::before,
+.portfolio .slick-next::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "slick";
+  font-size: 18px;
+  line-height: 1;
+  color: #fff;
+  opacity: 1;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.portfolio .slick-prev::before {
+  content: "←";
+}
+.portfolio .slick-next::before {
+  content: "→";
+}
+
+.portfolio .slick-dots {
+  bottom: -32px;
+}
+.portfolio .slick-dots li button:before {
+  color: #2a6f97;
+  opacity: 0.35;
+  font-size: 10px;
+}
+.portfolio .slick-dots li.slick-active button:before {
+  opacity: 0.95;
 }
 
 /* -----------------------------------------------------
@@ -582,75 +792,6 @@ kota_WebOfficeについて
   display: block;
   margin: 4rem auto 0;
   text-align: center;
-}
-
-/* -----------------------------------------------------
-制作実績
------------------------------------------------------ */
-.portfolio {
-  background-color: #fff;
-  padding: 6rem 4%;
-}
-
-.portfolio__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.portfolio__item {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.portfolio__item:hover {
-  transform: scale(1.02);
-}
-
-.portfolio__item img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-}
-
-.portfolio__item figcaption {
-  text-align: center;
-  margin-top: 0.75rem;
-  font-weight: 600;
-  font-size: 1rem;
-  color: #333;
-}
-
-.portfolio .btn {
-  width: 40%;
-  max-width: 400px;
-  display: block;
-  margin: 3rem auto 0;
-  text-align: center;
-}
-
-.portfolio__title {
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.portfolio__tags {
-  list-style: none;
-  padding-left: 0;
-  font-size: 0.95rem;
-  line-height: 1.8;
-}
-
-.portfolio__tags li::before {
-  content: "✔️";
-  margin-right: 0.4em;
-  color: #4db6ac;
 }
 
 /* -----------------------------------------------------
@@ -1148,6 +1289,7 @@ FAQ
 
 .profile__promise {
   background: #fff;
+  border-left: 6px solid #80bfa8;
   padding: 2rem;
   border-radius: 8px;
   margin-bottom: 3rem;
@@ -1157,15 +1299,17 @@ FAQ
 .profile__promise h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  text-align: center;
+  text-align: left;
 }
 
-.profile__promise ul {
+.profile__promise .promise__list,
+.profile__career .career__list {
   list-style: disc inside;
   padding-left: 1rem;
 }
 
-.profile__promise li {
+.profile__promise li,
+.profile__career li {
   margin-bottom: 0.5rem;
   font-size: 1rem;
   list-style: disc;
@@ -1232,42 +1376,42 @@ FAQ
   color: #0d8ddb;
 }
 
-.profile__social{
-  --accent: #80bfa8;             
+.profile__social {
+  --accent: #80bfa8;
   margin: 3rem 0;
   padding: 2rem;
   background: #fff;
   border-radius: 8px;
-  border-left: 6px solid var(--accent); 
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-left: 6px solid var(--accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.profile__social .profile__sub-title{
+.profile__social .profile__sub-title {
   font-size: 1.5rem;
   font-weight: bold;
   color: #222;
-  margin: 0 0 .75rem;
+  margin: 0 0 0.75rem;
   padding-left: 0;
-  position: static;         
+  position: static;
 }
 
-.profile__social .profile__sub-title::before{ 
-	content: none; 
+.profile__social .profile__sub-title::before {
+  content: none;
 }
 
-.profile__social .profile__note{
-  margin: .5rem 0 1.25rem;
-  padding: .9rem 1rem;
+.profile__social .profile__note {
+  margin: 0.5rem 0 1.25rem;
+  padding: 0.9rem 1rem;
   color: #333;
-  background: #f7f9f9; 
+  background: #f7f9f9;
   border: 1px solid #eee;
   border-left: 4px solid var(--accent);
   border-radius: 8px;
   font-size: 1rem;
 }
-.profile__social .profile__note strong{
+.profile__social .profile__note strong {
   font-weight: 700;
-  background: none;              
+  background: none;
 }
 
 .profile__career {
@@ -1277,7 +1421,7 @@ FAQ
   border-radius: 8px;
   line-height: 1.8;
   background: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .profile__career .profile__sub-title {
@@ -1295,7 +1439,7 @@ FAQ
 }
 
 .career__list li::marker {
-  content: "•  ";  
+  content: "•  ";
   color: #333;
 }
 
@@ -1303,7 +1447,7 @@ FAQ
   margin: 3rem 0;
   padding: 2rem;
   background: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   border-left: 6px solid #80bfa8;
   border-radius: 8px;
   line-height: 1.8;
@@ -1600,12 +1744,12 @@ FAQ
 }
 
 .portfolio-detail__content ul {
-	margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .portfolio-detail__content li {
-	list-style: disc;
-	list-style-position: inside;
+  list-style: disc;
+  list-style-position: inside;
 }
 
 .portfolio-detail__content img {
@@ -1670,25 +1814,32 @@ FAQ
 }
 
 .portfolio-detail__info dl {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  column-gap: 0.75rem;
+  row-gap: 1rem;
   margin: 0;
 }
 
 .portfolio-detail__row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
+  display: contents; /* 中の dt と dd をグリッドの直下要素として扱う */
 }
 
-.portfolio-detail__row dt {
-  width: 120px;
-  font-weight: bold;
+/* ラベル列 */
+.portfolio-detail__info dt {
+  grid-column: 1;
+  font-weight: 700;
   color: #333;
+  margin: 0;
 }
 
-.portfolio-detail__row dd {
+/* 値の列 */
+.portfolio-detail__info dd {
+  grid-column: 2;
   margin: 0;
-  flex: 1;
   color: #555;
+  min-width: 0; /* 長いURLでのはみ出し防止 */
+  word-break: break-word; /* URLの折返し */
 }
 
 .portfolio-detail__row a {
@@ -1725,7 +1876,6 @@ FAQ
   color: #222;
   padding-bottom: 0.8rem;
   margin-bottom: 2.5rem;
-  text-align: left;
   border-bottom: none;
 }
 
@@ -1734,11 +1884,25 @@ FAQ
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 6px;
-  width: 60px;
+  height: 4px;
+  width: 0;
+  opacity: 0;
   background: linear-gradient(90deg, #5cc3b0, #a6c9b4);
-  border-radius: 3px;
+  border-radius: 2px;
   box-shadow: 0 2px 6px rgba(92, 195, 176, 0.3);
+
+  animation: slideInUnderline 0.9s ease-out forwards;
+}
+
+@keyframes slideInUnderline {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
 }
 
 .page__content {
@@ -2018,23 +2182,21 @@ main.page {
   .profile,
   .works,
   .portfolio-detail,
-  .service-detail__section
-	{
+  .service-detail__section {
     padding-top: 3rem;
   }
-  
+
   .is-safari .service-detail__section,
   .is-safari .profile,
   .is-safari .works,
   .is-safari .portfolio-detail,
-	.is-safari .page
-  {
+  .is-safari .page {
     padding-top: 5rem;
   }
-	.main,
-	.is-safari .main {
-		padding-top:3.2rem;
-	}
+  .main,
+  .is-safari .main {
+    padding-top: 3.2rem;
+  }
   .about,
   .services,
   .news,
@@ -2146,16 +2308,16 @@ main.page {
   .open .site-header__nav {
     right: 0;
   }
-	
+
   .hamburger {
-  display: block;
-  width: 40px;  
-  height: 40px; 
-  position: relative;
-  cursor: pointer;
-  z-index: 1001;
-}
-	
+     display: block;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
   .open .hamburger {
     display: block;
   }
@@ -2169,27 +2331,27 @@ main.page {
     background-color: #3b3b3b;
     transition: 0.5s;
   }
-	
+
   .hamburger__line:nth-child(1) {
-	top: 10px;
-	}
-	
+    top: 10px;
+  }
+
   .hamburger__line:nth-child(2) {
-	top: 22px;
-	}
-  
+    top: 22px;
+  }
+
   .hamburger__line:nth-child(3) {
-	bottom: 4px;
-	}
+    bottom: 4px;
+  }
 
   .open .hamburger__line:nth-child(1) {
     transform: translateY(13px) rotate(45deg);
   }
-	
+
   .open .hamburger__line:nth-child(2) {
     opacity: 0;
   }
-	
+
   .open .hamburger__line:nth-child(3) {
     transform: translateY(-11px) rotate(-45deg);
   }
@@ -2212,37 +2374,53 @@ main.page {
   }
 
   /* ===== ヒーローセクション ===== */
-.hero picture,
-.hero__bg-image {
-  object-position: center 60%;
 
-}
-.hero__inner {
-  top: 40%;
-  left: 5%;
-  transform: translateY(-50%);
-	padding: 2rem 0;
-}
+  .hero__bg-image {
+    object-position: center 35%;
+  }
+  .hero__inner {
+    top: 25%;
+    left: 5%;
+    transform: translateY(-50%);
+  }
 
-.hero__catch-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
+  .hero__catch-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
 
-.hero__catch-line {
-  font-size: 1.6rem;
-  padding: 0.3em 0.8em;
-}
+  .hero__catch-line {
+    font-size: 1.6rem;
+    padding: 0.3em 0.8em;
+  }
 
-.hero__desc {
-  display: none;
-}
+  .hero__desc {
+    display: none;
+  }
 
-.price__link-subtle {
-  font-size: 0.95rem;
-}
+  .price__link-subtle {
+    font-size: 0.95rem;
+  }
+
+  /* ===== 制作実績セクション ===== */
+  .portfolio__thumb {
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+  .portfolio__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .portfolio .slick-prev,
+  .portfolio .slick-next {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+  }
 }
 /* -----------------------------------------------------
 SP
@@ -2258,9 +2436,9 @@ SP
   .contact {
     padding: 2.5rem 2%;
   }
-	
+
   main {
-	padding-bottom: 2rem;
+    padding-bottom: 2rem;
   }
 
   .section-title {
@@ -2288,7 +2466,7 @@ SP
     font-size: 1.3rem;
     line-height: 1.4;
   }
-	.faq .btn {
+  .faq .btn {
     justify-content: center;
     margin: 4rem auto 0;
     text-align: center;
@@ -2308,29 +2486,27 @@ SP
     font-size: 1.4rem;
     line-height: 1.5;
   }
-  
+
   .site-header__title-link {
     padding: 0.4rem;
   }
 
-	
-　/* ===== ヒーローセクション ===== */
-	.hero picture,
-    .hero__bg-image {
-     object-position: center;
+  /* ===== ヒーローセクション ===== */
+  .hero__bg-image {
+    object-position: center;
   }
 
   .hero__inner {
-	top: 25%;
+    top: 25%;
     left: 5%;
     right: 5%;
-	padding: 0;
-	  align-items: center;
-	  text-align:center;
+    padding: 0;
+    align-items: center;
+    text-align: center;
   }
-	.hero__text {
-  text-align:center;
-}
+  .hero__text {
+     text-align: center;
+  }
   .hero__role {
     font-size: 1rem;
   }
@@ -2338,40 +2514,65 @@ SP
   .hero__catch-wrap {
     gap: 0.6rem;
     margin-bottom: 0rem;
-	  text-align:center;
+    text-align: center;
   }
   .hero__catch-line {
-  font-size: 1.2rem;
-  padding: 0.3em 0.8em;
- }
+    font-size: 1.2rem;
+    padding: 0.3em 0.8em;
+  }
 
   .hero__desc {
     font-size: 0.9rem;
     line-height: 1.6;
-	  margin-bottom:0;
-	  text-align: left;
+    margin-bottom: 0;
+    text-align: left;
   }
 
   .price__link-subtle {
     font-size: 0.9rem;
-	  font-weight: bold;
+    font-weight: bold;
   }
 
   .price__arrow {
     width: 50%;
     top: 55%;
-	left: 28%;
+    left: 28%;
+  }
+
+  /* ===== 制作実績 ===== */
+  .portfolio__item figure {
+    margin: 0;
+    padding: 0;
+  }
+
+  .portfolio__thumb {
+    width: 100%;
+    height: auto;
+  }
+
+  .portfolio__thumb img,
+  .portfolio__item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    vertical-align: bottom;
+  }
+  .portfolio .slick-prev,
+  .portfolio .slick-next {
+    width: 32px;
+    height: 32px;
   }
 
   /* ===== kota_WebOfficeについて ===== */
   .about__catch {
     font-size: 1.2rem;
   }
-	
+
   .about__headline {
     font-size: 1rem;
   }
-	
+
   .about__list {
     padding-left: 1.5rem;
   }
@@ -2435,7 +2636,7 @@ SP
   .service-text {
     font-size: 0.95rem;
   }
-  
+
   /* ===== 固定ページ ===== */
   .page__title {
     font-size: 1.5rem;
@@ -2536,12 +2737,25 @@ SP
     text-align: left;
   }
 
-  .profile__promise {
-    padding: 1.5rem;
+  .profile__promise h3,
+  .profile__social h3,
+  .profile__career h3,
+  .profile__story h3 {
+    font-size: 1.25rem;
   }
 
-  .profile__promise h3 {
-    font-size: 1.25rem;
+  .profile__promise,
+  .profile__social,
+  .profile__career,
+  .profile__story {
+    padding: 1.5rem 1rem;
+    font-size: 0.95rem;
+    border-left: 4px solid #80bfa8;
+    margin: 3rem 0;
+  }
+
+  .career__list {
+    margin-left: 1rem;
   }
 
   .profile__promise li {
@@ -2591,13 +2805,6 @@ SP
   .profile__table td {
     font-size: 0.95rem;
     padding: 0.5rem;
-  }
-
-  .profile__story {
-    padding: 1.5rem 1rem;
-    font-size: 0.95rem;
-    border-left: 4px solid #80bfa8;
-    margin: 3rem 0;
   }
 
   .profile__story .profile__sub-title {
@@ -2742,17 +2949,20 @@ SP
     font-size: 1rem;
     padding: 0.75rem 1rem;
   }
-
 }
 
 /* 1) 視覚的に隠すけど読み上げ対象にするユーティリティ */
 .visually-hidden:not(:focus):not(:active) {
   position: absolute !important;
-  width: 1px; height: 1px;
-  margin: -1px; padding: 0; border: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
-  overflow: hidden; white-space: nowrap;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 /* 2) キーボードフォーカスが見えるように（見た目は控えめ） */
@@ -2799,12 +3009,20 @@ textarea:focus-visible {
     transition: none !important;
     scroll-behavior: auto !important;
   }
-  .fadein { opacity: 1 !important; transform: none !important; }
+  .fadein {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* 5) スキップリンク（既存定義を活かしつつ focus-visible にも反応） */
-.skip-link:focus-visible { left: 8px; }
+.skip-link:focus-visible {
+  left: 8px;
+}
 
-@media (min-width: 1025px) {   /* PCは隠す */
-  .hamburger { display: none; }
+@media (min-width: 1025px) {
+  /* PCは隠す */
+  .hamburger {
+    display: none;
+  }
 }
