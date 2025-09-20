@@ -11,7 +11,7 @@ get_header();
         <h1 class="page__title"><?php the_title(); ?></h1>
 
         <p class="profile__lead">
-            “ちゃんと伝わる”を大切に。誠実対応で安心のWeb制作を。
+            “ちゃんと伝わる”を大切に。<br>誠実対応で安心のWeb制作を。
         </p>
         <p class="profile__intro">
             Kota_WebOfficeは、神奈川県を拠点に活動するWebコーダー／個人制作者です。<br>
@@ -21,7 +21,7 @@ get_header();
 
         <section class="profile__promise" role="region" aria-labelledby="promise-heading">
             <h3 id="promise-heading" class="profile__sub-title">お約束する3つのこと</h3>
-            <ul>
+            <ul class="promise__list">
                 <li><strong>納期厳守：</strong>スケジュールをしっかり管理し、計画通りに納品します</li>
                 <li><strong>迅速なレスポンス：</strong>原則24時間以内のご返信</li>
                 <li><strong>最後まで責任対応：</strong>納品後のご質問・修正も柔軟に対応します</li>
@@ -40,12 +40,12 @@ get_header();
             </div>
 
             <div class="profile__info">
-                <h2 class="profile__name">Kota</h2>
+                <h2 class="profile__name">Kota_WebOffice</h2>
 
                 <table class="profile__table" aria-label="プロフィール情報一覧">
                     <tr>
                         <th scope="row">代表者</th>
-                        <td>Kota</td>
+                        <td>山岸 洸太（やまぎし こうた）</td>
                     </tr>
 					<tr>
                         <th scope="row">年齢</th>
@@ -84,13 +84,15 @@ get_header();
         </div>
 		
 		<div class="profile__social" role="region" aria-labelledby="social-heading">
-            <h3 id="social-heading" class="profile__sub-title">日々の発信</h3>
-                <p class="profile__note">X（旧Twitter）で Web制作の案件・実装の気づきを<strong>毎日発信中</Ïstrong>です。</p>
-                    <blockquote class="twitter-tweet" data-theme="light">
-                        <p lang="ja" dir="ltr">📌【ポートフォリオ＆成長の記録】<br><br>学習を積み重ね、案件挑戦を経て <br>WordPressオリジナルテーマでポートフォリオを公開しました。 <br><br>継続力とアウトプット力を強みに、 <br>ご依頼にも丁寧かつ迅速に対応しています。 <br><br>（学習初期→案件挑戦→現在の流れを3枚でまとめました👇） <a href="https://t.co/bVsP1QJWmR">pic.twitter.com/bVsP1QJWmR</a></p>&mdash; Kota @ Webコーダー (@KOO86079816) <a href="https://twitter.com/KOO86079816/status/1957744348684251647?ref_src=twsrc%5Etfw">August 19, 2025</a>
-                    </blockquote>
+  <h3 id="social-heading" class="profile__sub-title">日々の発信</h3>
+  <p class="profile__note">X（旧Twitter）で Web制作の案件・実装の気づきを<strong>毎日発信中</strong>です。</p>
+
+  <blockquote class="twitter-tweet" data-theme="light">
+    <p lang="ja" dir="ltr">📌【ポートフォリオ＆成長の記録】<br><br>学習を積み重ね、案件挑戦を経て <br>WordPressオリジナルテーマでポートフォリオを公開しました。 <br><br>継続力とアウトプット力を強みに、 <br>ご依頼にも丁寧かつ迅速に対応しています。 <br><br>（学習初期→案件挑戦→現在の流れを3枚でまとめました👇） <a href="https://t.co/bVsP1QJWmR">pic.twitter.com/bVsP1QJWmR</a></p>&mdash; Kota @ Webコーダー (@KOO86079816) <a href="https://twitter.com/KOO86079816/status/1957744348684251647?ref_src=twsrc%5Etfw">August 19, 2025</a>
+  </blockquote>
 			<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </div>
+
+</div>
 
 		<div class="profile__career" role="region" aria-labelledby="career-heading">
             <h3 id="career-heading" class="profile__sub-title">経歴</h3>
