@@ -79,9 +79,30 @@
     </section>
 
   </article>
-  <!-- 記事ここまで -->
-
   <a href="<?php echo esc_url(home_url('/portfolio')); ?>" class="btn">制作実績一覧に戻る</a>
+  <section class="contact fadein" id="contact" role="region" aria-labelledby="contact-heading">
+        <div class="section-inner">
+            <h2 class="section-title" id="contact-heading">
+                <span class="ja">お問い合わせ</span>
+                <span class="divider"></span>
+                <span class="en">Contact</span>
+            </h2>
+            <p class="contact__text">御社の要件に合わせて最適なサイトを制作します。まずはお気軽にご相談ください。</p>
+
+            <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="contact__btn"
+               aria-label="お問い合わせフォームへ移動">
+                <span class="contact__btn-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                         viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                         aria-hidden="true" focusable="false">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                    </svg>
+                </span>
+                お問い合わせフォーム
+            </a>
+        </div>
+    </section>
 </main>
 
 <?php get_footer(); ?>
