@@ -98,3 +98,13 @@ function add_thanks_redirect_js()
     }
 }
 add_action('wp_footer', 'add_thanks_redirect_js');
+
+add_filter('script_loader_tag', function($tag,$handle){
+  if (is_admin()) return $tag;
+  $skip = ['jquery-core','jquery-migrate'];
+  if (in_array($handle,$skip)) return $tag;
+  return str_replace('<script ', '<script defer ', $tag);
+},10,2);
+
+remove_action('wp_head','print_emoji_detection_script',7);
+remove_action('wp_print_styles','print_emoji_styles');
