@@ -18,10 +18,10 @@ html {
 }
 
 body {
-　opacity: 0;
+  opacity: 0;
   visibility: hidden;
-  transition: opacity 0.6s ease;
-  font-family: "Noto Sans JP", sans-serif;
+  transition: opacity 0.6s ease;
+  font-family: "Noto Sans JP", sans-serif;
   color: #3b3b3b;
   min-height: 100vh;
   height: 100%;
@@ -183,7 +183,7 @@ img {
 .fadein {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.8s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 .fadein.active {
@@ -498,34 +498,6 @@ img {
   letter-spacing: 0.01em;
   padding: 0.5rem 1rem;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-
-  opacity: 0;
-  transform: translate3d(50px, 0, 0);
-  will-change: transform, opacity;
-  animation: slideInFromRight 1.8s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.hero__catch-line:nth-child(2) {
-  animation-delay: 0.6s;
-}
-
-.hero__catch-line.is-done {
-  will-change: auto;
-}
-
-@keyframes slideInFromRight {
-  0% {
-    opacity: 0;
-    transform: translate3d(50px, 0, 0);
-  }
-  60% {
-    opacity: 0.95;
-    transform: translate3d(4px, 0, 0);
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
 }
 
 .hero__desc {
@@ -874,14 +846,6 @@ kota_WebOfficeについて
 .flow {
   background-color: #f0f4f7;
   padding: 6rem 4%;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.flow.animate {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .flow__timeline {
@@ -977,14 +941,6 @@ FAQ
 .faq {
   background-color: #ffffff;
   padding: 6rem 4%;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.faq.animate {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .ac-menu {
@@ -1429,14 +1385,6 @@ FAQ
   border-radius: 8px;
   margin-bottom: 3rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  opacity: 0;
-  transform: translateX(50px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.profile__promise.animate {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 .profile__promise h3 {
@@ -1480,42 +1428,23 @@ FAQ
   border: 4px solid #ccc;
 }
 
-/* Profile image animation - fade in from bottom with floating effect */
+/* Profile image area */
 .profile__image-area {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.profile__image-area.animate {
-  opacity: 1;
-  transform: translateY(0);
+  flex: 1 1 250px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
 .profile__info {
   flex: 2 1 400px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.profile__info.animate {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .profile__name {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  opacity: 0;
-  transform: translateX(50px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.profile__name.animate {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 .profile__table {
@@ -1556,14 +1485,6 @@ FAQ
   border-radius: 8px;
   border-left: 6px solid var(--accent);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.profile__social.animate {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .profile__social .profile__sub-title {
@@ -1602,14 +1523,6 @@ FAQ
   line-height: 1.8;
   background: #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.profile__career.animate {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .profile__career .profile__sub-title {
@@ -1641,14 +1554,6 @@ FAQ
   line-height: 1.8;
   font-size: 1rem;
   color: #333;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.profile__story.animate {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .profile__story .profile__sub-title {
@@ -1722,14 +1627,6 @@ FAQ
   flex: 0 0 60px;
   margin-top: 0.5rem;
   color: #228866;
-  opacity: 0;
-  transform: translateX(50px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.service-block__icon.animate {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 .service-block__icon svg {
@@ -1739,14 +1636,6 @@ FAQ
 
 .service-block__content {
   flex: 1;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.service-block__content.animate {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .service-block__title {
@@ -1775,14 +1664,6 @@ FAQ
 .price {
   background-color: #f8f9fa;
   padding: 4rem 0;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.price.animate {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .price__note {
@@ -1884,25 +1765,6 @@ FAQ
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.works-grid.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.works-card {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.works-card.animate {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .works-card {
@@ -1957,14 +1819,6 @@ FAQ
   font-size: 1.75rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  opacity: 0;
-  transform: translateX(50px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.portfolio-detail__title.animate {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 .portfolio__tags {
@@ -2011,14 +1865,6 @@ FAQ
   height: auto;
   border-radius: 8px;
   margin-bottom: 2rem;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.portfolio-detail__image.animate {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .portfolio-detail__text {
@@ -2029,14 +1875,6 @@ FAQ
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   margin-bottom: 3rem;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.portfolio-detail__text.animate {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .mockup-images {
@@ -2045,14 +1883,6 @@ FAQ
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 2rem;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.mockup-images.animate {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .mockup-images img {
@@ -2089,14 +1919,6 @@ FAQ
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   font-size: 1rem;
   line-height: 1.6;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.portfolio-detail__info.animate {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .portfolio-detail__info dl {
@@ -2163,14 +1985,6 @@ FAQ
   padding-bottom: 0.8rem;
   margin-bottom: 2.5rem;
   border-bottom: none;
-  opacity: 0;
-  transform: translateX(50px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.page__title.animate {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 .page__title::after {
@@ -2306,19 +2120,11 @@ main.page {
 /* -----------------------------------------------------
 ニュース一覧ページ
 ----------------------------------------------------- */
-/* ニュース一覧ページ用のアニメーション */
+/* ニュース一覧ページ用のスタイル */
 .page .news-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.page .news-list.animate {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* フロントページ用の通常表示 */
@@ -2330,20 +2136,13 @@ main.page {
   transform: none;
 }
 
-/* ニュース一覧ページ用のアニメーション */
+/* ニュース一覧ページ用のスタイル */
 .page .news-item {
   border-bottom: 1px solid #ddd;
   padding: 1.5rem 1rem;
   display: flex;
   align-items: flex-start;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease, background-color 0.3s;
-}
-
-.page .news-item.animate {
-  opacity: 1;
-  transform: translateY(0);
+  transition: background-color 0.3s;
 }
 
 /* フロントページ用の通常表示 */
@@ -2641,7 +2440,7 @@ main.page {
   }
 
   .hamburger {
-     display: block;
+    display: block;
     width: 40px;
     height: 40px;
     position: relative;
@@ -2836,7 +2635,7 @@ SP
     text-align: center;
   }
   .hero__text {
-     text-align: center;
+    text-align: center;
   }
   .hero__role {
     font-size: 1rem;
